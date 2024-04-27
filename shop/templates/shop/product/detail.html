@@ -1,0 +1,222 @@
+{% extends "shop/base.html" %}
+{% load i18n %}
+{% load static %}
+{% load thumbnail %}
+
+
+{% block title %}
+  {% trans product.name %}
+{% endblock %}
+
+{% block content %}
+
+  <div class="product-detail">
+    <div class="image-group">
+      <div id="main-image">
+        {% if product.image %}
+          {% thumbnail product.image "400x400" crop="smart" as main_thumbnail %}
+          <img id="main-img" src="{{ main_thumbnail.url }}" alt="{% trans product.name %}">
+        {% else %}
+          <img id="main-img" src="{% static 'image/no_image.jpg' %}" alt="{% trans product.name %}">
+        {% endif %}
+      </div>
+      <div class="small-images">
+        {% if product.image %}
+          {% thumbnail product.image "100x100" crop="smart" as small_thumbnail %}
+          <a href="#" onclick="switchMainImage('{{ product.image.url }}', 400, 400)">
+            <img class="small-img" src="{{ small_thumbnail.url }}" alt="{% trans product.name %}">
+          </a>
+        {% endif %}
+
+        {% if product.image_2 %}
+          {% thumbnail product.image_2 "100x100" crop="smart" as small_thumbnail_2 %}
+          <a href="#" onclick="switchMainImage('{{ product.image_2.url }}', 400, 400)">
+            <img class="small-img" src="{{ small_thumbnail_2.url }}" alt="{% trans product.name %}">
+          </a>
+        {% endif %}
+
+        {% if product.image_3 %}
+          {% thumbnail product.image_3 "100x100" crop="smart" as small_thumbnail_3 %}
+          <a href="#" onclick="switchMainImage('{{ product.image_3.url }}', 400, 400)">
+            <img class="small-img" src="{{ small_thumbnail_3.url }}" alt="{% trans product.name %}">
+          </a>
+        {% endif %}
+      </div>
+    </div>
+
+    <div class="info">
+      <div class="product-info">
+        <h4>{% trans product.name %}</h4>
+        <h5>
+          <a href="{% url 'shop:product_list_by_category' type_slug=product.type.slug category_slug=product.category.slug %}">
+            {% trans product.category.name %}
+          </a>
+        </h5>
+        <p class="price">${{ product.price }}</p>
+        <div class="description">
+          {{ product.description|linebreaks }}
+        </div>
+        <div class="recommender">
+          <h4>{% trans "People who bought this also bought" %}</h4>
+          {% if recommended_products %}
+            <div class="recommendations">
+              {% for p in recommended_products %}
+                <div class="item">
+                  <a href="{{ p.get_absolute_url }}">
+                    <img src="{% if p.image %}{{ p.image.url }}{% else %}{% static 'img/no_image.png' %}{% endif %}">
+                  </a>
+                  <p><a href="{{ p.get_absolute_url }}">{{ p.name }}</a></p>
+                </div>
+              {% endfor %}
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+
+    <div class="product-form">
+      <form action="{% url 'cart:cart_add' product.id %}" method="post">
+        {{ cart_product_form }}
+        <div class="size-selection">
+          <label for="shoe-size">{% trans "Select Size:" %}</label>
+          <select id="shoe-size" name="size">
+            {% for size in product.size.all %}
+              <option value="{{ size.id }}">{{ size.name }}</option>
+            {% endfor %}
+          </select>
+        </div>
+
+        {% csrf_token %}
+        <input type="submit" value="{% trans 'Add' %}">
+      </form>
+      {% if user.is_authenticated %}
+        <div class="wishlist">
+          <form id="wishlist-form" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="id" value="{{ product.id }}">
+            {% if in_wishlist %}
+              <input type="hidden" name="action" value="remove_from_wishlist">
+              <button type="button" onclick="toggleWishlist()">{% trans "unWish" %}</button>
+            {% else %}
+              <input type="hidden" name="action" value="add_to_wishlist">
+              <button type="button" onclick="toggleWishlist()">{% trans "Wish" %}</button>
+            {% endif %}
+          </form>
+        </div>
+      {% endif %}
+
+
+<div class="product-container">
+    <div class="review-section">
+      <h3>{% trans "Rating:" %} {{ avg_rating }}</h3>
+      <h4>{% trans "Reviews" %}</h4>
+       {% if not user_review %}
+        <form action="{% url 'shop:review_add' product.id %}" method="post">
+          {% csrf_token %}
+          {{ review_form.as_p }}
+          <button type="submit">{% trans "Submit Review" %}</button>
+        </form>
+      {% endif %}
+
+       {% for review in product.reviews.all %}
+        <div class="review">
+          <p>{% trans "Rating:" %} {{ review.rating }}</p>
+          <p>{{ review.comment }}</p>
+          <p>{% trans "Posted by:" %} {{ review.user.username }} | {% trans "Date:" %} {{ review.created_at }}</p>
+          {% if review.user == request.user %}
+           <!-- <form action="{% url 'shop:review_edit' product.id review.id %}" method="post">
+              {% csrf_token %}
+              {{ review_form.as_p }}
+              <button type="submit">{% trans "Edit Review" %}</button>
+            </form> -->
+            <form id="delete-review-form-{{ review.id }}" action="{% url 'shop:review_delete' product.id review.id %}" method="post">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger delete-review-btn">{% trans "Delete" %}</button>
+            </form>
+
+          {% endif %}
+        </div>
+      {% endfor %}
+
+
+    </div>
+  </div>
+  </div>
+
+
+
+
+</div>
+
+
+    </div>
+
+  </div>
+
+
+<script>
+  function switchMainImage(imageUrl, width, height) {
+    var mainImage = document.getElementById("main-img");
+    mainImage.src = imageUrl;
+    mainImage.width = width;
+    mainImage.height = height;
+  }
+
+  function toggleWishlist() {
+    var form = document.getElementById('wishlist-form');
+    var formData = new FormData(form);
+
+    fetch('{% url "account:toggle_wishlist" %}', {
+      method: 'POST',
+      headers: {
+        'X-CSRFToken': '{{ csrf_token }}'
+      },
+      body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+      if (data.success) {
+        // Update UI based on response (e.g., change button text)
+        var button = document.querySelector('.product-form button');
+        if (button.innerText === '{% trans "Wish" %}') {
+          button.innerText = '{% trans "unWish" %}';
+        } else {
+          button.innerText = '{% trans "Wish" %}';
+        }
+        console.log(data.message);
+      } else {
+        console.error('{% trans "Error toggling wishlist:" %}', data.message);
+      }
+    })
+    .catch(error => {
+      console.error('{% trans "Error toggling wishlist:" %}', error);
+    });
+  }
+  // Add event listener to delete buttons
+  document.querySelectorAll('.delete-review-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+      const reviewId = this.dataset.reviewId;
+      // Send AJAX request to delete the review
+      fetch(`/shop/review_delete/${product.id}/${reviewId}/`, {
+        method: 'POST',
+        headers: {
+          'X-Requested-With': 'XMLHttpRequest',
+          'X-CSRFToken': '{{ csrf_token }}'
+        }
+      })
+      .then(response => {
+        if (response.ok) {
+          // Reload the page after review deletion
+          window.location.reload();
+        } else {
+          console.error('Failed to delete review');
+        }
+      })
+      .catch(error => {
+        console.error('Error deleting review:', error);
+      });
+    });
+  });
+
+</script>
+{% endblock %}

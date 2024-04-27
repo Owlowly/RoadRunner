@@ -1,0 +1,124 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-04-25 10:54-0400\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\shop\templates\shop\base.html:21
+msgid "RoadRunner"
+msgstr ""
+
+#: .\shop\templates\shop\base.html:55
+msgid "Hello"
+msgstr ""
+
+#: .\shop\templates\shop\base.html:64
+msgid "Orders"
+msgstr ""
+
+#: .\shop\templates\shop\base.html:65
+msgid "Wishes"
+msgstr ""
+
+#: .\shop\templates\shop\base.html:66
+msgid "Edit account"
+msgstr ""
+
+#: .\shop\templates\shop\base.html:69
+msgid "Log out"
+msgstr ""
+
+#: .\shop\templates\shop\base.html:77
+msgid "register"
+msgstr ""
+
+#: .\shop\templates\shop\base.html:80
+msgid "Log in"
+msgstr ""
+
+#: .\shop\templates\shop\base.html:99 .\shop\templates\shop\base.html:103
+msgid "item"
+msgstr ""
+
+#: .\shop\templates\shop\base.html:100
+msgid "Total"
+msgstr ""
+
+#: .\shop\templates\shop\product\detail.html:60
+msgid "People who bought this also bought"
+msgstr ""
+
+#: .\shop\templates\shop\product\detail.html:81
+msgid "Select Size:"
+msgstr ""
+
+#: .\shop\templates\shop\product\detail.html:90
+msgid "Add"
+msgstr ""
+
+#: .\shop\templates\shop\product\detail.html:99
+#: .\shop\templates\shop\product\detail.html:182
+msgid "unWish"
+msgstr ""
+
+#: .\shop\templates\shop\product\detail.html:102
+#: .\shop\templates\shop\product\detail.html:181
+#: .\shop\templates\shop\product\detail.html:184
+msgid "Wish"
+msgstr ""
+
+#: .\shop\templates\shop\product\detail.html:111
+#: .\shop\templates\shop\product\detail.html:123
+msgid "Rating:"
+msgstr ""
+
+#: .\shop\templates\shop\product\detail.html:112
+msgid "Reviews"
+msgstr ""
+
+#: .\shop\templates\shop\product\detail.html:117
+msgid "Submit Review"
+msgstr ""
+
+#: .\shop\templates\shop\product\detail.html:125
+msgid "Posted by:"
+msgstr ""
+
+#: .\shop\templates\shop\product\detail.html:125
+msgid "Date:"
+msgstr ""
+
+#: .\shop\templates\shop\product\detail.html:130
+msgid "Edit Review"
+msgstr ""
+
+#: .\shop\templates\shop\product\detail.html:134
+msgid "Delete"
+msgstr ""
+
+#: .\shop\templates\shop\product\detail.html:188
+#: .\shop\templates\shop\product\detail.html:192
+msgid "Error toggling wishlist:"
+msgstr ""
+
+#: .\shop\templates\shop\product\list.html:14
+msgid "Categories"
+msgstr ""
+
+#: .\shop\templates\shop\product\list.html:17
+msgid "All"
+msgstr ""

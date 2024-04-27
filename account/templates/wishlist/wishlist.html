@@ -1,0 +1,40 @@
+{% extends "shop/base.html" %}
+{% load i18n %}
+
+{% load static %}
+
+{% block title %}
+  {% trans "Your Wishlist" %}
+{% endblock %}
+
+{% block content %}
+<body class="wishlist-page">
+
+<table class="wishlist">
+  <tbody>
+    {% for item in wishlist_items %}
+      <tr>
+        <td class="product-image">
+            <a href="{{ item.product.get_absolute_url }}">
+              <img src="{% if item.product.image %}{{ item.product.image.url }}
+              {% else %}{% static 'img/no_image.png' %}{% endif %}" alt="{{ item.product.name }}">
+            </a>
+          </td>
+        <td>{{ item.product.name }}</td>
+        <td>
+        <td class="product-price">${{ item.product.price }}</td>
+        </td>
+        <td class="product-remove">
+            <form action="{% url 'account:wishlist_remove' item.product.id %}" method="post">
+                {% csrf_token %}
+                <button type="submit" class="button dark">{% trans "Remove" %}</button>
+            </form>
+        </td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+</body>
+
+{% endblock %}

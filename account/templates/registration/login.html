@@ -1,0 +1,42 @@
+{% extends "shop/base.html" %}
+{% load i18n %}
+{% load static %}
+
+{% block title %}{% trans "Log-in" %}{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/account.css' %}">
+  <h1>{% trans "Log-in" %}</h1>
+  {% if form.errors %}
+    <p>
+      {% trans "Your username and password didn't match.
+      Please try again." %}
+    </p>
+  {% else %}
+    <p>
+     {% trans " Please, use the following form to log-in." %}
+     {% trans "If you don't have an account" %} <a href="{% url 'account:register' %}">{% trans "register here" %}</a>.
+    </p>
+  {% endif %}
+  <div class="login-form">
+    <form action="{% url 'account:login' %}" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="next" value="{{ next }}" />
+        <p>
+          <label for="{{ form.username.id_for_label }}"> {% trans "Email:" %}</label>
+          {{ form.username }}
+        </p>
+        <p>
+          <label for="{{ form.password.id_for_label }}">{% trans "Password:" %}</label>
+          {{ form.password }}
+        </p>
+        <p><input type="submit" value="Log-in"></p>
+</form>
+
+    <p>
+      <a href="{% url 'account:password_reset' %}">
+        {% trans "Forgotten your password?" %}
+      </a>
+    </p>
+  </div>
+{% endblock %}

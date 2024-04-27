@@ -1,0 +1,36 @@
+{% extends "shop/base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="display-4">Thank you</h1>
+
+    <div class="order-items-container">
+       <p>Your order has been successfully completed. Your order number is
+           <strong>{{ order.id }}</strong>.</p>
+        {% for item in order.items.all %}
+            <p>
+                <img src="{{ item.product.image.url }}" alt="{{ item.product.name }}" width="100" height="100">
+                {{ item.product.name }}, Size:
+                {% for size in item.size.all %}
+                    {{ size }}{% if not forloop.last %}, {% endif %}
+                {% endfor %}
+                Quantity: {{ item.quantity }}
+            </p>
+        {% endfor %}
+    </div>
+</div>
+
+<style>
+    .order-items-container {
+        margin-top: 20px;
+        margin-left: auto;
+        margin-right: 200px;
+        font-size: 18px;
+
+    }
+    #rounded-image {
+        border-radius: 25px;
+</style>
+
+{% endblock %}

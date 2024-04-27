@@ -1,0 +1,343 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-04-25 11:29-0400\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\account\forms.py:9
+msgid "Email"
+msgstr ""
+
+#: .\account\forms.py:14
+msgid "Password"
+msgstr "Contraseña"
+
+#: .\account\forms.py:15
+msgid "Repeat password"
+msgstr "Repita la contraseña"
+
+#: .\account\forms.py:25
+msgid "Passwords don't match"
+msgstr "Las contraseñas no coinciden"
+
+#: .\account\forms.py:31 .\account\forms.py:51
+msgid "Email already in use."
+msgstr "Correo electrónico ya en uso."
+
+#: .\account\models.py:11
+msgid "last_name"
+msgstr "apellido"
+
+#: .\account\models.py:12
+msgid "address"
+msgstr "dirección"
+
+#: .\account\models.py:13
+msgid "postal_code"
+msgstr "Código Postal"
+
+#: .\account\models.py:14
+msgid "city"
+msgstr "ciudad"
+
+#: .\account\templates\registration\confirm_delete_user.html:8
+msgid "Confirm Account Deletion"
+msgstr ""
+
+#: .\account\templates\registration\confirm_delete_user.html:11
+msgid "Are you sure you want to delete your account?"
+msgstr ""
+
+#: .\account\templates\registration\confirm_delete_user.html:14
+msgid "Delete"
+msgstr ""
+
+#: .\account\templates\registration\confirm_delete_user.html:15
+#: .\account\templates\registration\edit.html:57
+#: .\account\templates\registration\password_change_form.html:44
+msgid "Cancel"
+msgstr ""
+
+#: .\account\templates\registration\edit.html:13
+msgid "Edit your account"
+msgstr ""
+
+#: .\account\templates\registration\edit.html:15
+#: .\account\templates\registration\password_change_form.html:15
+msgid "Change your password"
+msgstr ""
+
+#: .\account\templates\registration\edit.html:15
+msgid "here"
+msgstr ""
+
+#: .\account\templates\registration\edit.html:30
+msgid "First Name:"
+msgstr ""
+
+#: .\account\templates\registration\edit.html:34
+msgid "Last Name:"
+msgstr ""
+
+#: .\account\templates\registration\edit.html:38
+#: .\account\templates\registration\login.html:26
+#: .\account\templates\registration\register.html:22
+msgid "Email:"
+msgstr ""
+
+#: .\account\templates\registration\edit.html:43
+#, fuzzy
+#| msgid "address"
+msgid "Address:"
+msgstr "dirección"
+
+#: .\account\templates\registration\edit.html:47
+msgid "City"
+msgstr ""
+
+#: .\account\templates\registration\edit.html:51
+#, fuzzy
+#| msgid "postal_code"
+msgid "Postal Code:"
+msgstr "Código Postal"
+
+#: .\account\templates\registration\edit.html:56
+#: .\account\templates\registration\password_change_form.html:43
+msgid "Save"
+msgstr ""
+
+#: .\account\templates\registration\edit.html:58
+msgid "Delete Account"
+msgstr ""
+
+#: .\account\templates\registration\logged_out.html:5
+#: .\account\templates\registration\logged_out.html:8
+msgid "Logged out"
+msgstr ""
+
+#: .\account\templates\registration\logged_out.html:10
+msgid "You have been successfully logged out."
+msgstr ""
+
+#: .\account\templates\registration\logged_out.html:11
+msgid "You can"
+msgstr ""
+
+#: .\account\templates\registration\logged_out.html:11
+msgid "log-in again"
+msgstr ""
+
+#: .\account\templates\registration\login.html:5
+#: .\account\templates\registration\login.html:9
+msgid "Log-in"
+msgstr ""
+
+#: .\account\templates\registration\login.html:17
+msgid " Please, use the following form to log-in."
+msgstr ""
+
+#: .\account\templates\registration\login.html:18
+msgid "If you don't have an account"
+msgstr ""
+
+#: .\account\templates\registration\login.html:18
+msgid "register here"
+msgstr ""
+
+#: .\account\templates\registration\login.html:30
+#: .\account\templates\registration\register.html:27
+#, fuzzy
+#| msgid "Password"
+msgid "Password:"
+msgstr "Contraseña"
+
+#: .\account\templates\registration\login.html:38
+#: .\account\templates\registration\password_reset_form.html:9
+msgid "Forgotten your password?"
+msgstr ""
+
+#: .\account\templates\registration\password_change_done.html:5
+#: .\account\templates\registration\password_change_done.html:8
+#, fuzzy
+#| msgid "Password"
+msgid "Password changed"
+msgstr "Contraseña"
+
+#: .\account\templates\registration\password_change_done.html:9
+msgid "Your password has been successfully changed."
+msgstr ""
+
+#: .\account\templates\registration\password_change_form.html:17
+msgid "Your password can’t be too similar to your other personal information."
+msgstr ""
+
+#: .\account\templates\registration\password_change_form.html:18
+msgid "Your password must contain at least 8 characters."
+msgstr ""
+
+#: .\account\templates\registration\password_change_form.html:19
+msgid "Your password can’t be a commonly used password."
+msgstr ""
+
+#: .\account\templates\registration\password_change_form.html:20
+msgid "Your password can’t be entirely numeric."
+msgstr ""
+
+#: .\account\templates\registration\password_change_form.html:26
+#, fuzzy
+#| msgid "Password"
+msgid "Old password:"
+msgstr "Contraseña"
+
+#: .\account\templates\registration\password_change_form.html:31
+#, fuzzy
+#| msgid "Repeat password"
+msgid "New password:"
+msgstr "Repita la contraseña"
+
+#: .\account\templates\registration\password_change_form.html:36
+msgid "New password confirmation:"
+msgstr ""
+
+#: .\account\templates\registration\password_reset_complete.html:5
+#, fuzzy
+#| msgid "Password"
+msgid "Password reset"
+msgstr "Contraseña"
+
+#: .\account\templates\registration\password_reset_complete.html:8
+#, fuzzy
+#| msgid "Password"
+msgid "Password set"
+msgstr "Contraseña"
+
+#: .\account\templates\registration\password_reset_complete.html:9
+msgid "Your password has been set. You can"
+msgstr ""
+
+#: .\account\templates\registration\password_reset_complete.html:9
+msgid "log in now"
+msgstr ""
+
+#: .\account\templates\registration\password_reset_confirm.html:5
+#: .\account\templates\registration\password_reset_confirm.html:8
+#, fuzzy
+#| msgid "Passwords don't match"
+msgid "Password Reset Confirmation"
+msgstr "Las contraseñas no coinciden"
+
+#: .\account\templates\registration\password_reset_confirm.html:12
+#, fuzzy
+#| msgid "Password"
+msgid "Set New Password"
+msgstr "Contraseña"
+
+#: .\account\templates\registration\password_reset_done.html:5
+#: .\account\templates\registration\password_reset_done.html:8
+#: .\account\templates\registration\password_reset_form.html:5
+#, fuzzy
+#| msgid "Repeat password"
+msgid "Reset your password"
+msgstr "Repita la contraseña"
+
+#: .\account\templates\registration\password_reset_done.html:9
+msgid "We've emailed you instructions for setting your password."
+msgstr ""
+
+#: .\account\templates\registration\password_reset_done.html:10
+msgid ""
+"If you don't receive an email, please make sure you've entered the address "
+"you registered with."
+msgstr ""
+
+#: .\account\templates\registration\password_reset_email.html:3
+msgid "Someone asked for a password reset for email"
+msgstr ""
+
+#: .\account\templates\registration\password_reset_email.html:3
+msgid "Follow the link below:"
+msgstr ""
+
+#: .\account\templates\registration\password_reset_email.html:7
+msgid "Your username, in case you've forgotten it:"
+msgstr ""
+
+#: .\account\templates\registration\password_reset_form.html:10
+msgid "Enter your e-mail address to obtain a new password."
+msgstr ""
+
+#: .\account\templates\registration\password_reset_form.html:17
+msgid "Send e-mail"
+msgstr ""
+
+#: .\account\templates\registration\register.html:5
+#: .\account\templates\registration\register.html:9
+msgid "Create an account"
+msgstr ""
+
+#: .\account\templates\registration\register.html:10
+msgid "Please, sign up using the following form:"
+msgstr ""
+
+#: .\account\templates\registration\register.html:17
+#, fuzzy
+#| msgid "last_name"
+msgid "First name:"
+msgstr "apellido"
+
+#: .\account\templates\registration\register.html:32
+#, fuzzy
+#| msgid "Repeat password"
+msgid "Repeat password:"
+msgstr "Repita la contraseña"
+
+#: .\account\templates\registration\register.html:37
+msgid "Create"
+msgstr ""
+
+#: .\account\templates\registration\register_done.html:5
+#: .\account\templates\registration\register_done.html:8
+msgid "Welcome"
+msgstr ""
+
+#: .\account\templates\registration\register_done.html:10
+msgid "Your account has been successfully created."
+msgstr ""
+
+#: .\account\templates\registration\register_done.html:11
+msgid "Now you can"
+msgstr ""
+
+#: .\account\templates\registration\register_done.html:11
+msgid "log in"
+msgstr ""
+
+#: .\account\templates\wishlist\wishlist.html:7
+msgid "Your Wishlist"
+msgstr ""
+
+#: .\account\templates\wishlist\wishlist.html:30
+msgid "Remove"
+msgstr ""
+
+#: .\account\views.py:56
+msgid "Account updated successfully"
+msgstr ""
+
+#: .\account\views.py:59
+msgid "Error updating your account"
+msgstr ""

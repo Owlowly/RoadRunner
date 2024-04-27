@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Success</title>
+    <!-- Add your CSS styles or link to a stylesheet here -->
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+            color: #343a40;
+            text-align: center;
+            margin: 50px;
+        }
+
+        h1 {
+            color: #28a745;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        .return-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            text-align: center;
+            text-decoration: none;
+            background-color: #28a745;
+            color: #fff;
+            border: 2px solid #28a745;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .return-btn:hover {
+            background-color: #218838;
+            border-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <h1>Thank you for contacting me!</h1>
+    <p>I'll get back to you as soon as possible.</p>
+
+    <!-- Return to Main Page Button -->
+    <a href="{% url 'shop:product_list' %}" class="return-btn">Return to Main Page</a>
+
+</body>
+</html>

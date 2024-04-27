@@ -1,0 +1,125 @@
+{% load i18n %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Invoice</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+    }
+    h1 {
+      color: black;
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+    h3 {
+      color: black;
+      font-size: 20px;
+      margin-top: 20px;
+      margin-bottom: 10px;
+    }
+    p {
+      margin: 0;
+      color: #777;
+    }
+    table {
+      width: 100%;
+      border-collapse: solid;
+      margin-top: 20px;
+    }
+    th, td {
+      border: 1px solid #000000;
+      padding: 8px;
+      color: #000;
+    }
+
+    th {
+      background-color: #EEEEEE;
+    }
+    tr {
+      background-color: #EEEEEE;
+    }
+
+    .num {
+      text-align: right;
+    }
+    .paid {
+      color: green;
+    }
+    .pending {
+      color: red;
+    }
+    .product-size {
+      margin: 0;
+      font-style: italic;
+    }
+
+  </style>
+</head>
+<body>
+  <h1>RoadRunner</h1>
+  <p>Invoice no. {{ order.id }}</p>
+  <p><span class="secondary">{{ order.created|date:"M d, Y" }}</span></p>
+
+  <h3>{% trans "Bill to" %}</h3>
+  <p>
+    {{ order.first_name }} {{ order.last_name }}<br>
+    {{ order.email }}<br>
+    {{ order.address }}<br>
+    {{ order.postal_code }}, {{ order.city }}
+  </p>
+
+  <h3>{% trans 'Items bought' %}</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>{% trans 'Product' %}</th>
+        <th>{% trans 'Size' %}</th>
+        <th>{% trans 'Price' %}</th>
+        <th>{% trans 'Quantity' %}</th>
+        <th>{% trans 'Cost' %}</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for item in order.items.all %}
+        <tr class="{% cycle 'odd' 'even' %}">
+          <td>{{ item.product.name }}</td>
+          <td>
+            <p class="product-size">
+              {% for size in item.size.all %}{{ size.name }}{% endfor %}
+            </p>
+          </td>
+          <td class="num">${{ item.price }}</td>
+          <td class="num">{{ item.quantity }}</td>
+          <td class="num">${{ item.get_cost }}</td>
+        </tr>
+      {% endfor %}
+
+      {% if order.coupon %}
+        <tr class="subtotal">
+          <td colspan="4">Subtotal</td>
+          <td class="num">${{ order.get_total_cost_before_discount|floatformat:2 }}</td>
+        </tr>
+        <tr>
+          <td colspan="4">
+            "{{ order.coupon.code }}" coupon ({{ order.discount }}% off)
+          </td>
+          <td class="num neg">- ${{ order.get_discount|floatformat:2 }}</td>
+        </tr>
+      {% endif %}
+
+      <tr class="total">
+        <td colspan="4">{% trans 'Total' %}</td>
+        <td class="num">${{ order.get_total_cost|floatformat:2 }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p class="{% if order.paid %}paid{% else %}pending{% endif %}">
+    {% if order.paid %}{% trans 'Paid' %}{% else %}{% trans 'Pending payment' %}{% endif %}
+  </p>
+</body>
+</html>

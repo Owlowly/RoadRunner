@@ -1,0 +1,20 @@
+{% extends "shop/base.html" %}
+{% load i18n %}
+
+{% block content %}
+  <div class="container mt-4">
+    <div class="card">
+      <div class="card-header bg-danger text-white">
+        <h4 class="mb-0">{% trans "Confirm Account Deletion" %}</h4>
+      </div>
+      <div class="card-body">
+        <p>{% trans "Are you sure you want to delete your account?" %}</p>
+        <form method="post">
+          {% csrf_token %}
+          <button class="btn btn-danger" type="submit">{% trans "Delete" %}</button>
+          <a href="{% url 'account:edit' %}" class="btn btn-secondary">{% trans "Cancel" %}</a>
+        </form>
+      </div>
+    </div>
+  </div>
+{% endblock content %}

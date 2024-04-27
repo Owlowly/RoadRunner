@@ -1,0 +1,39 @@
+{% extends 'shop/base.html' %}
+
+{% block content %}
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 mx-auto mt-5">
+        <div class="card">
+          <div class="card-body">
+            <h1 class="card-title text-center mb-4">Contact Denys</h1>
+
+            <form method="post" action="{% url 'shop:contact' %}" novalidate>
+              {% csrf_token %}
+
+              <div class="mb-3">
+                <label for="subject" class="form-label">Subject:</label>
+                <input type="text" class="form-control {% if form.subject.errors %} is-invalid {% endif %}" id="subject" name="subject" required>
+                <div class="invalid-feedback">Please provide a subject.</div>
+              </div>
+
+              <div class="mb-3">
+                <label for="email" class="form-label">Sender email:</label>
+                <input type="email" class="form-control {% if form.email.errors %} is-invalid {% endif %}" id="email" name="email" required>
+                <div class="invalid-feedback">Please provide a valid email address.</div>
+              </div>
+
+              <div class="mb-3">
+                <label for="message" class="form-label">Message:</label>
+                <textarea class="form-control {% if form.message.errors %} is-invalid {% endif %}" id="message" name="message" required></textarea>
+                <div class="invalid-feedback">Please enter your message.</div>
+              </div>
+
+              <button type="submit" class="btn btn-outline-success">Send</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

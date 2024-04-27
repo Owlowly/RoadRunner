@@ -1,0 +1,153 @@
+{% load i18n %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Courgette&display=swap" rel="stylesheet">
+    <link href="{% static 'css/base.css' %}" rel="stylesheet">
+</head>
+
+<body>
+   <header>
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+
+            <div class="row align-items-center">
+                <div class="col">
+                    <h3 class="logo"><a href="/{{ request.LANGUAGE_CODE }}/">{{ _('RoadRunner') }}</a></h3>
+
+                </div>
+                <div class="col-auto">
+                    <div class="languages">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="languageDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            {% get_current_language as LANGUAGE_CODE %}
+                            {% get_available_languages as LANGUAGES %}
+                            {% for language_code, language_name in LANGUAGES %}
+                                {% if language_code == LANGUAGE_CODE %}
+                                    {{ language_code|upper }}
+                                {% endif %}
+                            {% endfor %}
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="languageDropdown">
+                            {% for language_code, language_name in LANGUAGES %}
+                                <a class="dropdown-item {% if language_code == LANGUAGE_CODE %}active{% endif %}" href="/{{ language_code }}/">{{ language_code|upper }}</a>
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+
+            </div>
+            </div>
+
+            <div class="navbar-nav ml-auto">
+                <li class="nav-item">
+                <a href="{% url 'shop:contact' %}" class="btn btn-outline-dark ">Contact</a>
+
+             </li>
+                <ul class="navbar-nav">
+                    {% if user.is_authenticated %}
+                    <li class="text-muted"><p></p>
+                        <div class="dropdown">
+                            <button class="btn dropdown-toggle transparent-background" type="button" id="userDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                               {% trans "Hello" %},
+                                {% if request.user.first_name %}
+                                    {{ request.user.first_name }}
+                                {% else %}
+                                    {{ request.user.username }}
+                                {% endif %}
+
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="userDropdown">
+                                <a class="dropdown-item" href="{% url 'orders:order_list' %}">{% trans "Orders" %}</a>
+                                <a class="dropdown-item" href="{% url 'account:wishlist' %}">{% trans "Wishes" %}</a>
+                                <a class="dropdown-item" href="{% url 'account:edit' %}">{% trans "Edit account" %}</a>
+                                <form method="post" action="{% url 'account:logout' %}" class="dropdown-item">
+                                    {% csrf_token %}
+                                    <button type="submit" class="btn">{% trans "Log out" %}</button>
+                                </form>
+                            </div>
+                        </div>
+                    </li>
+                    {% else %}
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'account:register' %}">{% trans 'register' %}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'account:login' %}">{% trans "Log in" %}</a>
+                    </li>
+
+                    {% endif %}
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+    </header>
+
+    <div id="subheader">
+        <div class="container d-flex justify-content-end">
+            <div class="col-md-4">
+                <div class="cart mt-3">
+                    {% with total_items=cart|length %}
+                        {% if total_items > 0 %}
+                            🛒
+                            <a href="{% url 'cart:cart_detail' %}">
+                                {{ total_items }} {% trans "item" %}{{ total_items|pluralize }},
+                                <p>{% trans "Total" %}:  ${{ cart.get_total_price }}</p>
+                            </a>
+                        {% elif not order %}
+                            🛒 {{ total_items }} {% trans "item" %}{{ total_items|pluralize }}
+                        {% endif %}
+                    {% endwith %}
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <li class="{{ message.tags }}">
+                    <div>
+                        {{ message|safe }}
+                        <a href="#" class="close">x</a>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    <div id="content">
+        {% block content %}
+
+        {% endblock %}
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+    <script>
+
+        var closeButtons = document.querySelectorAll('.close');
+        closeButtons.forEach(function(button) {
+            button.addEventListener('click', function(event) {
+                // Prevent default link behavior
+                event.preventDefault();
+                // Hide the parent message element
+                this.parentNode.style.display = 'none';
+            });
+        });
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+
+venv/
+
+.idea/
+
+env/
+
+*.pyc
+
+staticfiles/
+
+__pycache__/
+
+.env
