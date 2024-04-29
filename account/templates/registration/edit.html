@@ -9,11 +9,8 @@
 </head>
 {% block content %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/account.css' %}">
-
   <h1>  {% trans "Edit your account" %}</h1>
-
 <p>{% trans "Change your password" %} <a href="{% url 'account:password_change' %}">{% trans "here" %}</a>.</p>
-
     {% if messages %}
         <ul class="messages">
             {% for message in messages %}
@@ -38,7 +35,6 @@
       <label for="id_email">{% trans "Email:" %}</label><br>
       {{ user_form.email }}
     </div>
-
     <div>
       <label for="id_address">{% trans "Address:" %}</label><br>
       {{ profile_form.address }}
@@ -51,18 +47,15 @@
       <label for="id_postal_code">{% trans "Postal Code:" %}</label><br>
       {{ profile_form.postal_code }}
     </div>
-
     <p>
     <input type="submit" value="{% trans 'Save' %}">
     <a href="/" class="button">{% trans "Cancel" %}</a>
        <p><a href="{% url 'account:confirm_delete_user' user_id=request.user.id %}" class="btn btn-danger btn-sm rounded">{% trans "Delete Account" %}</a>
     </p>
-
   </form>
  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
     <script>
-
         var closeButtons = document.querySelectorAll('.close');
         closeButtons.forEach(function(button) {
             button.addEventListener('click', function(event) {
@@ -72,8 +65,5 @@
                 this.parentNode.style.display = 'none';
             });
         });
-
-
     </script>
-
 {% endblock %}

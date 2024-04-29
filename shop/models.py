@@ -31,14 +31,11 @@ class Type(TranslatableModel):
         return reverse('shop:product_list_by_type', args=[self.slug])
 
 
-
-
 class Category(TranslatableModel):
     translations = TranslatedFields(
         name=models.CharField(max_length=50),
         slug=models.SlugField(max_length=200, unique=True, blank=True),
     )
-
     class Meta:
         # ordering = ['name']
         # indexes = [

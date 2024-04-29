@@ -40,10 +40,8 @@ def order_create(request):
             for item in cart:
                 try:
                     size_instance = Size.objects.get(name=item['size'])
-
                 except Size.DoesNotExist:
                     size_instance = None
-
                 order_item = OrderItem.objects.create(
                     order=order,
                     product=item['product'],
@@ -52,10 +50,7 @@ def order_create(request):
                 )
                 order_item.size.add(size_instance)
             r = Recommender()
-
             r.products_bought(cart)
-
-            # clear the cart
             cart.clear()
             clear_coupon(request)
             cart.save()
@@ -140,34 +135,6 @@ def export_to_csv(request, order_id):
     writer.writerow(['Total Order Price', total_order_price])
 
     return response
-
-
-"""
-@login_required
-def export_to_csv_2(request, order_id):
-    order = get_object_or_404(Order, id=order_id)
-    content_disposition = f'attachment; filename=order_{order_id}.csv'
-    response = HttpResponse(content_type='text/csv')
-    response['Content-Disposition'] = content_disposition
-    writer = csv.writer(response)
-
-    # Get the fields of the Order object
-    fields = order._meta.fields
-
-    # Write a first row with header information
-    writer.writerow([field.verbose_name.title() for field in fields])
-
-    # Write data rows
-    data_row = []
-    for field in fields:
-        value = getattr(order, field.attname)
-        if isinstance(value, timezone.datetime):
-            value = value.strftime('%d/%m/%Y')
-        data_row.append(value)
-    writer.writerow(data_row)
-
-    return response
-"""
 
 
 @login_required

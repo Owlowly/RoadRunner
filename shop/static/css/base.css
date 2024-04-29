@@ -132,14 +132,14 @@ h3.logo a:hover {
 
 .messages li {
     margin-left: 10px;
-    display: flex; /* Use flexbox to align items */
-    align-items: center; /* Center items vertically */
+    display: flex;
+    align-items: center;
 }
 
 .messages li .close {
     margin-left: 10px;
-    color: red; /* Change color as needed */
-    cursor: pointer; /* Change cursor to pointer on hover */
+    color: red;
+    cursor: pointer;
 }
 
 
@@ -384,7 +384,7 @@ input[type="submit"]:hover {
     padding-right: 0%;
 }
 .review-section .review {
-    margin-bottom: 20px; /* Adjust as needed to control spacing between reviews */
+    margin-bottom: 20px;
     margin-top: 20px;
 }
 
@@ -417,9 +417,9 @@ input[type="submit"]:hover {
     padding: 1px;
     border: none;
     margin-top: 5px;
-    margin-right: 10px; /* Adjust margin as needed */
+    margin-right: 10px;
     border-radius: 5px;
-    top: 0px; /* Adjust as needed */
+    top: 0px;
     right: 0px;
     cursor: pointer;
     transition: background-color 0.3s ease;
@@ -671,7 +671,7 @@ table.orders .total {
 
 
 .wishlist-page .wishlist td {
-    padding: 10px; /* Add padding to cells */
+    padding: 10px;
     width: 20%;
 
 }
@@ -679,27 +679,27 @@ table.orders .total {
 
 
 .wishlist-page .product-price {
-    width: 100px; /* Adjust the width as needed */
+    width: 100px;
 }
 
 
 .wishlist-page .wishlist .product-image img {
-    width: 150px; /* Set the width of images to 100px */
-    height: 150px; /* Set the height of images to 100px */
+    width: 150px;
+    height: 150px;
 }
 
 
 .wishlist-page .wishlist .product-remove button {
-    background-color: #ff0000; /* Red background color for the remove button */
-    color: #fff; /* White text color */
-    border: none; /* Remove button border */
-    padding: 5px 20px; /* Add some padding to the button */
-    cursor: pointer; /* Change cursor to pointer on hover */
-    display: block; /* Display the button as a block element */
-    margin: 0 auto; /* Center the button horizontally */
+    background-color: #ff0000;
+    color: #fff;
+    border: none;
+    padding: 5px 20px;
+    cursor: pointer;
+    display: block;
+    margin: 0 auto;
 }
 
 
 .wishlist-page .wishlist .product-remove button:hover {
-    background-color: #cc0000; /* Darker red background color on hover */
+    background-color: #cc0000; /
 }

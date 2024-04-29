@@ -3,12 +3,9 @@
 {% load thumbnail %}
 
 
-
 {% block content %}
   <div class="container">
     <h1>{% trans 'Checkout' %}</h1>
-
-
     <div class="order-info">
       <h3>{% trans "Your order" %}</h3>
       <ul>
@@ -17,8 +14,6 @@
             <div class="order-item-details">
               <img src="{% thumbnail item.product.image "100x100" crop="smart" %}" alt="{{ item.product.name }}">
               {{ item.product.name }} {% trans 'Size': %} {{ item.size }}, Quantity: {{ item.quantity }}
-
-
             </div>
             <div class="order-item-total">
               <span>${{ item.total_price }}</span>
@@ -31,10 +26,8 @@
           {% trans "Discount code:" %} "{{ cart.coupon.code }}" ({{ cart.coupon.discount }}% {% trans "off" %})
           <span class="neg">- ${{ cart.get_discount|floatformat:2 }}</span>
       </li>
-
       {% endif %}
       <p class="order-total">Total: ${{ cart.get_total_price_after_discount|floatformat:2 }}</p>
-
     </div>
 
 <form method="post" class="order-form">
@@ -42,6 +35,5 @@
       <p><input type="submit" value="Place order"></p>
       {% csrf_token %}
     </form>
-
   </div>
 {% endblock %}

@@ -10,7 +10,6 @@
 <body class="cart-detail-page">
 
 <table class="cart">
-
   <tbody>
     {% for item in cart %}
       {% with product=item.product %}
@@ -64,10 +63,8 @@
   </tbody>
 </table>
 
-
 <p class="buttons-cart">
   <a href="{% url 'shop:product_list' %}" class="button shopping">{% trans "Continue Shopping" %}</a>
-
   <a href="{% url 'orders:order_create' %}" class="button checkout">{% trans "Checkout" %}</a>
 </p>
 
@@ -79,7 +76,5 @@
         <input type="submit" value="{% trans 'Apply' %}" class="apply-button">
     </form>
 </p>
-
-
 </body>
 {% endblock %}

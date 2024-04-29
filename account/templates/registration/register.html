@@ -11,28 +11,22 @@
 
     <form method="post">
       {% csrf_token %}
-
-
       <div class="register_first_name">
         <label for="{{ user_form.first_name.id_for_label }}">{% trans "First name:" %}</label>
         {{ user_form.first_name }}
       </div>
-
       <div class="register_email">
         <label for="{{ user_form.email.id_for_label }}">{% trans "Email:" %}</label>
         {{ user_form.email }}
       </div>
-
       <div class="register_password">
         <label for="{{ user_form.password.id_for_label }}">{% trans "Password:" %}</label>
         {{ user_form.password }}
       </div>
-
       <div class="register_password">
         <label for="{{ user_form.password2.id_for_label }}">{% trans "Repeat password:" %}</label>
         {{ user_form.password2 }}
       </div>
-
       <div>
         <input type="submit" class="btn btn-success" value="{% trans 'Create' %}">
       </div>

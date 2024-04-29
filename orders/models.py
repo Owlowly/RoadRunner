@@ -56,7 +56,6 @@ class OrderItem(models.Model):
     quantity = models.PositiveIntegerField(default=1)
     size = models.ManyToManyField(Size)
 
-
     def __str__(self):
         return str(self.id)
 

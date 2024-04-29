@@ -91,10 +91,10 @@ def wishlist_remove(request, product_id):
     item = WishlistItem.objects.filter(user=request.user, product=product)
     if item.exists():
         item.delete()
-        # Redirect back to the wishlist page after successful removal
+
         return redirect('account:wishlist')
     else:
-        # Handle the case where the item does not exist in the wishlist
+
         return render(request, 'account/wishlist.html', {'product': product, 'item': None})
 
 
@@ -109,12 +109,12 @@ def toggle_wishlist(request):
             product = Product.objects.get(id=product_id)
 
             if action == 'add_to_wishlist':
-                # Add the product to the user's wishlist
+
                 WishlistItem.objects.get_or_create(user=request.user, product=product)
                 return JsonResponse({'success': True, 'message': 'Item added to wishlist'})
 
             elif action == 'remove_from_wishlist':
-                # Remove the product from the user's wishlist
+
                 WishlistItem.objects.filter(user=request.user, product=product).delete()
                 return JsonResponse({'success': True, 'message': 'Item removed from wishlist'})
 

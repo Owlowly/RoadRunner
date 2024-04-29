@@ -7,20 +7,15 @@
 
 {% block content %}
 <body class="cart-detail-page">
-
 <table class="cart">
-
   <tbody>
     {% for order in orders %}
       <tr class="order-info">
         <td>Order Number: {{ order.id }}</td>
-
         <td> <a href="{% url 'orders:order_pdf' order_id=order.id %}">PDF Invoice </a> or
           <a href="{% url 'orders:export_to_csv' order_id=order.id %}">Export to CSV </a>
-
         </td>
        <td> </td>
-
         <td>Date: {{ order.created }}</td>
         <td></td>
         <td>Total Price: ${{ order.get_total_cost|floatformat:2 }}</td>
@@ -42,7 +37,6 @@
         </tr>
       {% endif %}
       </tr>
-
       {% for item in order.items.all %}
         <tr>
           <td class="product-image">
@@ -63,15 +57,11 @@
             <p class="product-quantity">Quantity: {{ item.quantity }}</p>
           </td>
           <td class="num price-column">${{ item.price }}</td>
-
           <td class="num price-column">${{ item.get_cost }}</td>
         </tr>
       {% endfor %}
-
     {% endfor %}
-
   </tbody>
 </table>
-
 </body>
 {% endblock %}

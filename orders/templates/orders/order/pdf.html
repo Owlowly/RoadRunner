@@ -63,7 +63,6 @@
   <h1>RoadRunner</h1>
   <p>Invoice no. {{ order.id }}</p>
   <p><span class="secondary">{{ order.created|date:"M d, Y" }}</span></p>
-
   <h3>{% trans "Bill to" %}</h3>
   <p>
     {{ order.first_name }} {{ order.last_name }}<br>
@@ -71,7 +70,6 @@
     {{ order.address }}<br>
     {{ order.postal_code }}, {{ order.city }}
   </p>
-
   <h3>{% trans 'Items bought' %}</h3>
   <table>
     <thead>
@@ -97,7 +95,6 @@
           <td class="num">${{ item.get_cost }}</td>
         </tr>
       {% endfor %}
-
       {% if order.coupon %}
         <tr class="subtotal">
           <td colspan="4">Subtotal</td>
@@ -117,7 +114,6 @@
       </tr>
     </tbody>
   </table>
-
   <p class="{% if order.paid %}paid{% else %}pending{% endif %}">
     {% if order.paid %}{% trans 'Paid' %}{% else %}{% trans 'Pending payment' %}{% endif %}
   </p>
