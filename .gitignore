@@ -8,6 +8,7 @@ env/
 *.pyc
 
 staticfiles/
+media/
 
 __pycache__/
 
