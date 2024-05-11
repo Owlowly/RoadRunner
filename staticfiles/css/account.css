@@ -1,0 +1,204 @@
+body {
+    font-family: 'Courgette', cursive;
+    background-color: #CFDBC1;
+    margin: 0;
+    padding: 0;
+}
+h1, h3, h6 {
+    margin-top: 15px;
+    padding-left: 25px;
+}
+p {
+    margin-left: 25px;
+}
+
+
+
+form {
+    margin-top: 20px;
+    max-width: 350px;
+    margin-left: 45px;
+}
+
+form div {
+    margin-top: 5px;
+    position: relative;
+}
+
+form label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 10px;
+    position: absolute;
+    top: 0px;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="password"]{
+    width: calc(100% - 35px);
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    margin-bottom: 5px;
+    margin-left: 10px;
+}
+
+input[type="submit"] {
+  background: linear-gradient(to right, #AE9956, #75B54F);
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  margin-top: 20px;
+  margin-left: 25px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background: linear-gradient(to right, #D4B968, #75B54F);
+    font-size: 1.1em !important;
+    transition: font-size 0.2s ease;
+}
+
+
+.button {
+  background: linear-gradient(to right, #AE7556, #B54F4F);
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  margin-top: 20px;
+  margin-left: 25px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background: linear-gradient(to right, #D46D68, #B54F85);
+    font-size: 1.1em !important;
+    transition: font-size 0.2s ease;
+}
+
+/* change password_page */
+div.id_old_password {
+    margin-bottom: 5px;
+    position: relative;
+    margin-left: 20px;
+    margin-top:30px;
+}
+div.id_old_password label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+    position: relative;
+    margin-top: -25px;
+}
+div.id_new_password1 {
+    margin-top: 30px;
+    position: relative;
+    margin-left: 20px;
+}
+div.id_new_password1 label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+    position: relative;
+    margin-top: -25px;
+}
+div.id_new_password2 {
+   margin-top: 30px;
+    position: relative;
+    margin-left: 20px;
+}
+div.id_new_password2 label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+    position: relative;
+    margin-top: -25px;
+}
+
+/* Register */
+div.register_username {
+    margin-bottom: 5px;
+    padding: 8px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+div.register_username label {
+    display: block;
+    font-weight: bold;
+    position: relative;
+    margin-top: -25px;
+}
+div.register_first_name {
+    margin-bottom: 5px;
+    padding: 8px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+div.register_first_name label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+    position: relative;
+    margin-top: -25px;
+}
+div.register_email {
+    margin-bottom: 5px;
+    padding: 8px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+div.register_email label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+    position: relative;
+    margin-top: -25px;
+}
+div.register_password {
+    margin-bottom: 5px;
+    padding: 8px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+div.register_password label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+    position: relative;
+    margin-top: -25px;
+}
+
+/* Log-in */
+div.login-form{
+    margin-bottom: 5px;
+    padding: 8px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+div.login-form label{
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+    position: relative;
+    margin-top: -25px;
+}
+
+/* Password reset form */
+div.password_reset{
+    margin-top: 15px;
+    padding: 8px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+div.password_reset label{
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+    position: relative;
+    margin-top: -25px;
+}
