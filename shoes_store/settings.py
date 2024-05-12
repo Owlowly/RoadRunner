@@ -33,8 +33,8 @@ SECRET_KEY = config('SECRET_KEY')
 DEBUG = os.getenv("DEBUG", "False") == "True"
 DEVELOPMENT_MODE = os.getenv("DEVELOPMENT_MODE", "False") == "True"
 
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'roadrunner-ym4pv.ondigitalocean.app']
 
-ALLOWED_HOSTS = os.getenv("DJANGO_ALLOWED_HOSTS", "127.0.0.1,localhost").split(",")
 
 
 
