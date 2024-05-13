@@ -30,7 +30,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.getenv("DEBUG", "False") == "True"
+DEBUG = True
 DEVELOPMENT_MODE = os.getenv("DEVELOPMENT_MODE", "False") == "True"
 
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'roadrunner-ym4pv.ondigitalocean.app']
@@ -78,7 +78,7 @@ ROOT_URLCONF = 'shoes_store.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -133,7 +133,7 @@ LOCALE_PATH = [
     BASE_DIR / 'locale',
 ]
 
-ROSETTA_EXCLUDED_PATHS = ['env']
+ROSETTA_EXCLUDED_PATHS = ['env', 'venv', '.git', 'requirements.txt']
 
 LANGUAGES = [
     ('en', _('English')),

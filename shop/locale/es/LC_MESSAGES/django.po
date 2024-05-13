@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-25 10:54-0400\n"
+"POT-Creation-Date: 2024-05-13 09:28-0400\n"
 "PO-Revision-Date: 2024-04-25 10:48-0400\n"
 "Last-Translator:   <>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,100 +20,100 @@ msgstr ""
 "1 : 2;\n"
 "X-Translated-Using: django-rosetta 0.10.0\n"
 
-#: .\shop\templates\shop\base.html:21
+#: .\shop\templates\shop\base.html:20
 msgid "RoadRunner"
 msgstr ""
 
-#: .\shop\templates\shop\base.html:55
+#: .\shop\templates\shop\base.html:52
 msgid "Hello"
 msgstr "Hola"
 
-#: .\shop\templates\shop\base.html:64
+#: .\shop\templates\shop\base.html:60
 msgid "Orders"
 msgstr "Pedidos"
 
-#: .\shop\templates\shop\base.html:65
+#: .\shop\templates\shop\base.html:61
 msgid "Wishes"
 msgstr "Deseos"
 
-#: .\shop\templates\shop\base.html:66
+#: .\shop\templates\shop\base.html:62
 msgid "Edit account"
 msgstr "Editar cuenta"
 
-#: .\shop\templates\shop\base.html:69
+#: .\shop\templates\shop\base.html:65
 msgid "Log out"
 msgstr "Cerrar sesión"
 
-#: .\shop\templates\shop\base.html:77
+#: .\shop\templates\shop\base.html:72
 msgid "register"
 msgstr "registro"
 
-#: .\shop\templates\shop\base.html:80
+#: .\shop\templates\shop\base.html:75
 msgid "Log in"
 msgstr "Acceso"
 
-#: .\shop\templates\shop\base.html:99 .\shop\templates\shop\base.html:103
+#: .\shop\templates\shop\base.html:91 .\shop\templates\shop\base.html:95
 msgid "item"
 msgstr "artículo"
 
-#: .\shop\templates\shop\base.html:100
+#: .\shop\templates\shop\base.html:92
 msgid "Total"
 msgstr ""
 
-#: .\shop\templates\shop\product\detail.html:60
+#: .\shop\templates\shop\product\detail.html:58
 msgid "People who bought this also bought"
 msgstr "Las personas que compraron esto también compraron"
 
-#: .\shop\templates\shop\product\detail.html:81
+#: .\shop\templates\shop\product\detail.html:79
 msgid "Select Size:"
 msgstr "Tamaño:   "
 
-#: .\shop\templates\shop\product\detail.html:90
+#: .\shop\templates\shop\product\detail.html:87
 msgid "Add"
 msgstr "Agregar"
 
-#: .\shop\templates\shop\product\detail.html:99
-#: .\shop\templates\shop\product\detail.html:182
+#: .\shop\templates\shop\product\detail.html:96
+#: .\shop\templates\shop\product\detail.html:169
 msgid "unWish"
 msgstr "unDesear"
 
-#: .\shop\templates\shop\product\detail.html:102
-#: .\shop\templates\shop\product\detail.html:181
-#: .\shop\templates\shop\product\detail.html:184
+#: .\shop\templates\shop\product\detail.html:99
+#: .\shop\templates\shop\product\detail.html:168
+#: .\shop\templates\shop\product\detail.html:171
 msgid "Wish"
 msgstr "Desear"
 
-#: .\shop\templates\shop\product\detail.html:111
-#: .\shop\templates\shop\product\detail.html:123
+#: .\shop\templates\shop\product\detail.html:107
+#: .\shop\templates\shop\product\detail.html:119
 msgid "Rating:"
 msgstr "Clasificación:"
 
-#: .\shop\templates\shop\product\detail.html:112
+#: .\shop\templates\shop\product\detail.html:108
 msgid "Reviews"
 msgstr "Comentarios"
 
-#: .\shop\templates\shop\product\detail.html:117
+#: .\shop\templates\shop\product\detail.html:113
 msgid "Submit Review"
 msgstr "Enviar reseña"
 
-#: .\shop\templates\shop\product\detail.html:125
+#: .\shop\templates\shop\product\detail.html:121
 msgid "Posted by:"
 msgstr "Publicado por:"
 
-#: .\shop\templates\shop\product\detail.html:125
+#: .\shop\templates\shop\product\detail.html:121
 msgid "Date:"
 msgstr "Fecha:"
 
-#: .\shop\templates\shop\product\detail.html:130
+#: .\shop\templates\shop\product\detail.html:126
 msgid "Edit Review"
 msgstr "Editar revisión"
 
-#: .\shop\templates\shop\product\detail.html:134
+#: .\shop\templates\shop\product\detail.html:130
 msgid "Delete"
 msgstr "Borrar"
 
-#: .\shop\templates\shop\product\detail.html:188
-#: .\shop\templates\shop\product\detail.html:192
+#: .\shop\templates\shop\product\detail.html:175
+#: .\shop\templates\shop\product\detail.html:179
 msgid "Error toggling wishlist:"
 msgstr ""
 

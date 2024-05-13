@@ -8,23 +8,24 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-17 13:49-0400\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2024-05-13 11:57-0400\n"
+"PO-Revision-Date: 2024-05-13 12:03-0400\n"
+"Last-Translator:   <>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? "
-"1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
+"X-Translated-Using: django-rosetta 0.10.0\n"
+
 #: .\orders\models.py:12
 msgid "first name"
-msgstr ""
+msgstr "nombre"
 
 #: .\orders\models.py:13
 msgid "last name"
-msgstr ""
+msgstr "apellido"
 
 #: .\orders\models.py:14
 msgid "e-mail"
@@ -32,73 +33,76 @@ msgstr ""
 
 #: .\orders\models.py:15
 msgid "address"
-msgstr ""
+msgstr "dirección"
 
 #: .\orders\models.py:16
 msgid "postal code"
-msgstr ""
+msgstr "código postal"
 
 #: .\orders\models.py:17
 msgid "city"
-msgstr ""
+msgstr "ciudad"
 
-#: .\orders\templates\orders\order\create.html:9
+#: .\orders\templates\orders\order\create.html:8
 msgid "Checkout"
-msgstr ""
+msgstr "Caja"
 
-#: .\orders\templates\orders\order\create.html:13
+#: .\orders\templates\orders\order\create.html:10
 msgid "Your order"
-msgstr ""
+msgstr "Su pedido"
 
-#: .\orders\templates\orders\order\create.html:19
-#: .\orders\templates\orders\order\pdf.html:80
+#: .\orders\templates\orders\order\create.html:16
+#: .\orders\templates\orders\order\pdf.html:78
 msgid "Size"
-msgstr ""
+msgstr "Tamaño"
 
-#: .\orders\templates\orders\order\create.html:31
-msgid "Discount code:"
-msgstr ""
+#: .\orders\templates\orders\order\create.html:16
+#: .\orders\templates\orders\order\pdf.html:80
+msgid "Quantity"
+msgstr "Cantidad"
 
-#: .\orders\templates\orders\order\create.html:31
+#: .\orders\templates\orders\order\create.html:26
+#, fuzzy
+#| msgid "Discount code:"
+msgid "Discount code"
+msgstr "Código de descuento"
+
+#: .\orders\templates\orders\order\create.html:26
 msgid "off"
 msgstr ""
 
-#: .\orders\templates\orders\order\pdf.html:67
+#: .\orders\templates\orders\order\pdf.html:66
 msgid "Bill to"
 msgstr ""
 
-#: .\orders\templates\orders\order\pdf.html:75
+#: .\orders\templates\orders\order\pdf.html:73
 msgid "Items bought"
-msgstr ""
+msgstr "Artículos comprados"
+
+#: .\orders\templates\orders\order\pdf.html:77
+msgid "Product"
+msgstr "Producto"
 
 #: .\orders\templates\orders\order\pdf.html:79
-msgid "Product"
-msgstr ""
+msgid "Price"
+msgstr "Precio"
 
 #: .\orders\templates\orders\order\pdf.html:81
-msgid "Price"
-msgstr ""
-
-#: .\orders\templates\orders\order\pdf.html:82
-msgid "Quantity"
-msgstr ""
-
-#: .\orders\templates\orders\order\pdf.html:83
 msgid "Cost"
 msgstr ""
 
-#: .\orders\templates\orders\order\pdf.html:115
+#: .\orders\templates\orders\order\pdf.html:112
 msgid "Total"
 msgstr ""
 
-#: .\orders\templates\orders\order\pdf.html:122
+#: .\orders\templates\orders\order\pdf.html:118
 msgid "Paid"
 msgstr ""
 
-#: .\orders\templates\orders\order\pdf.html:122
+#: .\orders\templates\orders\order\pdf.html:118
 msgid "Pending payment"
 msgstr ""
 
 #: .\orders\urls.py:8
 msgid "create/"
-msgstr ""
+msgstr "crear/"

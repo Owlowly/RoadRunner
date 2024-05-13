@@ -8,57 +8,61 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-04-25 10:43-0400\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2024-05-13 09:26-0400\n"
+"PO-Revision-Date: 2024-05-13 11:43-0400\n"
+"Last-Translator:   <>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? "
-"1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
+"X-Translated-Using: django-rosetta 0.10.0\n"
 
-#: .\cart\forms.py:12
+#: .\cart\forms.py:11
 msgid "Quantity"
 msgstr "Cantidad"
 
-#: .\cart\templates\cart\detail.html:26
+#: .\cart\templates\cart\detail.html:25
 msgid "Size:"
 msgstr "Tamaño"
 
-#: .\cart\templates\cart\detail.html:29
+#: .\cart\templates\cart\detail.html:28
 msgid "Quantity:"
 msgstr "Cantidad"
 
-#: .\cart\templates\cart\detail.html:33
+#: .\cart\templates\cart\detail.html:32
 msgid "Remove"
 msgstr "borrar"
 
-#: .\cart\templates\cart\detail.html:44
+#: .\cart\templates\cart\detail.html:43
 msgid "Subtotal"
 msgstr "total parcial"
 
-#: .\cart\templates\cart\detail.html:50
+#: .\cart\templates\cart\detail.html:49
 msgid "coupon"
 msgstr "cupón"
 
-#: .\cart\templates\cart\detail.html:51
+#: .\cart\templates\cart\detail.html:50
 msgid "off"
 msgstr "descuento"
 
-#: .\cart\templates\cart\detail.html:61
+#: .\cart\templates\cart\detail.html:60
 msgid "Total"
 msgstr "Total"
 
-#: .\cart\templates\cart\detail.html:69
+#: .\cart\templates\cart\detail.html:67
 msgid "Continue Shopping"
 msgstr "Seguir comprando"
 
-#: .\cart\templates\cart\detail.html:71
+#: .\cart\templates\cart\detail.html:68
 msgid "Checkout"
 msgstr "Caja"
 
-#: .\cart\templates\cart\detail.html:79
+#: .\cart\templates\cart\detail.html:72
+msgid "Enter 'SPRING' for discount"
+msgstr "Ingrese 'SPRING' para obtener descuento"
+
+#: .\cart\templates\cart\detail.html:76
 msgid "Apply"
 msgstr "Aplicar"

@@ -69,7 +69,7 @@
 </p>
 
 <p class="coupon">
-<p class="coupon-info">Enter 'SPRING' for discount</p>
+<p class="coupon-info">{% trans "Enter 'SPRING' for discount" %}</p>
     <form action="{% url 'coupons:apply' %}" method="post" class="coupon-form" name="coupon_apply_form">
         {{ coupon_apply_form }}
         {% csrf_token %}

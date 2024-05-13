@@ -523,7 +523,7 @@ table.cart img {
 body.cart-detail-page a.button.checkout {
     background: linear-gradient(to right, #B49122, #77AC5F);
     color: white;
-    align-items: b;
+    align-items: center;
     border-radius: 15px;
     transition: background-color 0.3s ease;
     margin-left: 953px;
@@ -537,7 +537,7 @@ body.cart-detail-page a.button.checkout {
 
 
 .coupon-info {
-    margin-left: 920px;
+    margin-left: 30px;
     margin-top: 10px;
 
 }
@@ -545,13 +545,12 @@ body.cart-detail-page a.button.checkout {
 .coupon-form {
   display: flex;
   align-items: button;
-  margin-left: 870px;
+  margin-left: 30px;
   margin-top: -30px;
 }
 
 .coupon-form input[type="text"] {
   border-radius: 15px;
-
   height: 45px;
   width: 225px;
   margin-top: 25px;
