@@ -57,10 +57,10 @@ def order_create(request):
 
             # launch asynchronous task, sending email order
             # order_created.delay(order.id)
-
+            order_created(order.id)
             # sending PDF order
             # payment_completed.delay(order.id)
-
+            payment_completed(order.id)
             return render(request,
                           'orders/order/created.html',
                           {'order': order, })
