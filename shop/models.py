@@ -9,7 +9,9 @@ def product_image_path(instance, filename):
 
 
 class Size(models.Model):
-    name = models.CharField(max_length=10, unique=True)
+    # name = models.CharField(max_length=10, unique=True)
+
+    name = models.FloatField( unique=True)
 
     class Meta:
         ordering = ['name']
