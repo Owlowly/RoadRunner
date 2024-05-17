@@ -269,6 +269,13 @@ h3.logo a:hover {
     width: 100px;
 
 }
+.product-info a {
+    text-decoration: none;
+}
+
+.product-info a:hover {
+    text-decoration: none; 
+}
 
 
 .info {

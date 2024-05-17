@@ -46,6 +46,10 @@
       <div class="product-info">
         <h4>{% trans product.name %}</h4>
         <h5>
+          <a href="{% url 'shop:product_list_by_type' type_slug=product.type.slug %}">
+            {% trans product.type.name %},
+          </a>
+
           <a href="{% url 'shop:product_list_by_category' type_slug=product.type.slug category_slug=product.category.slug %}">
             {% trans product.category.name %}
           </a>
