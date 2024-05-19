@@ -19,27 +19,28 @@
         {% endif %}
       </div>
       <div class="small-images">
-        {% if product.image %}
-          {% thumbnail product.image "100x100" crop="smart" as small_thumbnail %}
-          <a href="#" onclick="switchMainImage('{{ product.image.url }}', 400, 400)">
-            <img class="small-img" src="{{ small_thumbnail.url }}" alt="{% trans product.name %}">
-          </a>
-        {% endif %}
+  {% if product.image %}
+    {% thumbnail product.image "100x100" crop="smart" as small_thumbnail %}
+    <a href="#" onclick="switchMainImage('{{ product.image.url }}', 400, 400)" data-image-url="{{ product.image.url }}">
+      <img class="small-img" src="{{ small_thumbnail.url }}" alt="{% trans product.name %}">
+    </a>
+  {% endif %}
 
-        {% if product.image_2 %}
-          {% thumbnail product.image_2 "100x100" crop="smart" as small_thumbnail_2 %}
-          <a href="#" onclick="switchMainImage('{{ product.image_2.url }}', 400, 400)">
-            <img class="small-img" src="{{ small_thumbnail_2.url }}" alt="{% trans product.name %}">
-          </a>
-        {% endif %}
+  {% if product.image_2 %}
+    {% thumbnail product.image_2 "100x100" crop="smart" as small_thumbnail_2 %}
+    <a href="#" onclick="switchMainImage('{{ product.image_2.url }}', 400, 400)" data-image-url="{{ product.image_2.url }}">
+      <img class="small-img" src="{{ small_thumbnail_2.url }}" alt="{% trans product.name %}">
+    </a>
+  {% endif %}
 
-        {% if product.image_3 %}
-          {% thumbnail product.image_3 "100x100" crop="smart" as small_thumbnail_3 %}
-          <a href="#" onclick="switchMainImage('{{ product.image_3.url }}', 400, 400)">
-            <img class="small-img" src="{{ small_thumbnail_3.url }}" alt="{% trans product.name %}">
-          </a>
-        {% endif %}
-      </div>
+  {% if product.image_3 %}
+    {% thumbnail product.image_3 "100x100" crop="smart" as small_thumbnail_3 %}
+    <a href="#" onclick="switchMainImage('{{ product.image_3.url }}', 400, 400)" data-image-url="{{ product.image_3.url }}">
+      <img class="small-img" src="{{ small_thumbnail_3.url }}" alt="{% trans product.name %}">
+    </a>
+  {% endif %}
+</div>
+
     </div>
 
     <div class="info">
@@ -152,6 +153,15 @@
     mainImage.width = width;
     mainImage.height = height;
   }
+
+  // Add event listeners to smaller images
+  document.querySelectorAll('.small-img').forEach(function(element) {
+    element.addEventListener('click', function(event) {
+      event.preventDefault(); // Prevent the default action
+      var imageUrl = this.getAttribute('data-image-url'); // Get the URL of the clicked image
+      switchMainImage(imageUrl, 400, 400); // Call the switchMainImage function with appropriate parameters
+    });
+  });
 
   function toggleWishlist() {
     var form = document.getElementById('wishlist-form');
