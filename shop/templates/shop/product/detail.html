@@ -20,28 +20,27 @@
       </div>
       <div class="small-images">
   {% if product.image %}
-    {% thumbnail product.image "100x100" crop="smart" as small_thumbnail %}
+    {% thumbnail product.image "120x120" crop="smart" as small_thumbnail %}
     <a href="#" onclick="switchMainImage('{{ product.image.url }}', 400, 400)" data-image-url="{{ product.image.url }}">
       <img class="small-img" src="{{ small_thumbnail.url }}" alt="{% trans product.name %}">
     </a>
   {% endif %}
 
   {% if product.image_2 %}
-    {% thumbnail product.image_2 "100x100" crop="smart" as small_thumbnail_2 %}
+    {% thumbnail product.image_2 "120x120" crop="smart" as small_thumbnail_2 %}
     <a href="#" onclick="switchMainImage('{{ product.image_2.url }}', 400, 400)" data-image-url="{{ product.image_2.url }}">
       <img class="small-img" src="{{ small_thumbnail_2.url }}" alt="{% trans product.name %}">
     </a>
   {% endif %}
 
   {% if product.image_3 %}
-    {% thumbnail product.image_3 "100x100" crop="smart" as small_thumbnail_3 %}
+    {% thumbnail product.image_3 "120x120" crop="smart" as small_thumbnail_3 %}
     <a href="#" onclick="switchMainImage('{{ product.image_3.url }}', 400, 400)" data-image-url="{{ product.image_3.url }}">
       <img class="small-img" src="{{ small_thumbnail_3.url }}" alt="{% trans product.name %}">
     </a>
   {% endif %}
 </div>
-
-    </div>
+</div>
 
     <div class="info">
       <div class="product-info">
@@ -107,7 +106,7 @@
         </div>
       {% endif %}
 
-<div class="product-container">
+
     <div class="review-section">
       <h3>{% trans "Rating:" %} {{ avg_rating }}</h3>
       <h4>{% trans "Reviews" %}</h4>
@@ -134,15 +133,13 @@
                 {% csrf_token %}
                 <button type="submit" class="btn btn-danger delete-review-btn">{% trans "Delete" %}</button>
             </form>
-
           {% endif %}
         </div>
       {% endfor %}
-
     </div>
   </div>
   </div>
-</div>
+
     </div>
   </div>
 

@@ -183,7 +183,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 THUMBNAIL_ALIASES = {
     '': {
         'main': {'size': (400, 400), 'crop': 'smart'},
-        'small': {'size': (100, 100), 'crop': 'smart'},
+        'small': {'size': (120, 120), 'crop': 'smart'},
     },
 }
 
