@@ -347,7 +347,7 @@ h3.logo a:hover {
         align-items: center;
     }
     #main-image img {
-    width: 80%;
+    width: 95%;
   }
     .image-group {
         margin-left: 0;
@@ -396,7 +396,7 @@ h3.logo a:hover {
 }
 .product-form select {
   vertical-align: middle;
-  width: 3.5rem;
+  width: 3.7rem;
   padding: 0.3rem;
   border-radius: 5px;
 
@@ -490,6 +490,8 @@ input[type="submit"] {
     padding: 5px;
     font-size: 14px;
   }
+
+
 }
 input[type="submit"]:hover {
     background: linear-gradient(to right, #D4B968, #75B54F);
@@ -499,22 +501,21 @@ input[type="submit"]:hover {
 
 .review-section {
     position: absolute;
-    margin-top: 19rem;
+    margin-top: 16rem;
     left: 50%;
     transform: translateX(-50%);
     width: 100%;
     background-color: #C7D4B7;
     overflow: auto;
 }
-
 @media (max-width: 760px) {
-    review-section {
-        margin-top: 10rem !important;
-        overflow: auto;
-
-
+    .review-section {
+        position: relative;
+        margin-top: 4rem;
+        bottom: auto;
     }
 }
+
 .review-section .review:nth-child(even) {
     background-color: #ADBD99;
     width: auto;
