@@ -54,7 +54,7 @@ def product_detail(request, id, slug):
     cart_product_form = CartAddProductForm()
     in_wishlist = False
     r = Recommender()
-    recommended_products = r.suggest_products_for([product], 4)
+    recommended_products = r.suggest_products_for([product], 3)
     if request.user.is_authenticated:
         in_wishlist = WishlistItem.objects.filter(user=request.user, product=product).exists()
 

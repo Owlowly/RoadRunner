@@ -31,3 +31,4 @@ class CartAddProductForm(forms.Form):
                 empty_label=None,
                 widget=forms.Select(attrs={'class': 'form-control'})
             )
+

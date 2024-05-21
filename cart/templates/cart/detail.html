@@ -21,12 +21,12 @@
             </a>
           </td>
           <td class="product-name">{{ product.name }}</td>
-          <td>
-            <p class="product-size">{% trans "Size:" %} {{ item.size }}</p>
-          </td>
-          <td>
-            <p class="product-quantity">{% trans "Quantity:" %} {{ item.quantity }}</p>
-          </td>
+
+            <td class="product-size">{% trans "Size:" %} {{ item.size }}</td>
+
+
+            <td class="product-quantity">{% trans "Quantity:" %} {{ item.quantity }}</td>
+
           <td class="product-remove">
             <form action="{% url 'cart:cart_remove' item.product.id item.size %}" method="post">
               <input type="submit" value="{% trans 'Remove' %}" class="button dark">

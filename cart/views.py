@@ -28,7 +28,7 @@ def cart_add(request, product_id):
 
     if form.is_valid():
         cd = form.cleaned_data
-        size = cd.get('size').name
+        size = cd.get('size')
         quantity = cd['quantity']
         override_quantity = cd['override']
         cart.add(
@@ -47,6 +47,8 @@ def cart_remove(request, product_id, size):
     cart = Cart(request)
     product = get_object_or_404(Product, id=product_id)
     try:
+
+
         cart.remove(product, size)
         return redirect('cart:cart_detail')
     except ValueError as e:

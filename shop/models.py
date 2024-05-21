@@ -1,5 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.db.models import IntegerField
+from django.db.models.functions import Cast
 from django.urls import reverse
 from parler.models import TranslatableModel, TranslatedFields
 
@@ -8,13 +10,19 @@ def product_image_path(instance, filename):
     return f'products/{instance.name}/{filename}'
 
 
+class SizeManager(models.Manager):
+    def get_queryset(self):
+        # Order sizes by numerical values
+        return super().get_queryset().order_by(Cast('name', IntegerField()))
+
+
 class Size(models.Model):
-    # name = models.CharField(max_length=10, unique=True)
+    name = models.CharField(max_length=10, unique=True)
 
-    name = models.FloatField( unique=True)
+    objects = SizeManager()
 
-    class Meta:
-        ordering = ['name']
+    # class Meta:
+    #     ordering = ['name']
 
     def __str__(self):
         return str(self.name)

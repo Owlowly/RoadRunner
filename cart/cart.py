@@ -91,7 +91,11 @@ class Cart:
     def remove(self, product, size):
         product_id = str(product.id)
         if product_id in self.cart:
-            size_instance = Size.objects.get(product=product, name=size)
+            try:
+                size_instance = Size.objects.get(product=product, name=size)
+            except Size.DoesNotExist:
+                raise ValueError("Size not found for the specified product.")
+
             size_name = size_instance.name
             if size_name in self.cart[product_id]['sizes']:
                 size_quantity = self.cart[product_id]['sizes'][size_name]['quantity']
