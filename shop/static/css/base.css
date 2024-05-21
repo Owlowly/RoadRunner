@@ -499,25 +499,28 @@ input[type="submit"]:hover {
 
 .review-section {
     position: absolute;
-    top: 33rem;
+    margin-top: 240px;
     left: 50%;
     transform: translateX(-50%);
     width: 100%;
     background-color: #C7D4B7;
+    overflow: auto;
 }
 
+@media (max-width: 760px) {
+    review-section {
+        margin-top: 10rem !important;
+        overflow: auto;
+
+
+    }
+}
 .review-section .review:nth-child(even) {
     background-color: #ADBD99;
     width: auto;
     margin-left: -1.5%;
     padding-left: 2%;
     padding-right: 0%;
-}
-@media (max-width: 760px) {
-    review-section {
-        margin-top: 0 !important;
-
-    }
 }
 
 .review-section .review {

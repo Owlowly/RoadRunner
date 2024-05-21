@@ -106,7 +106,6 @@
         </div>
       {% endif %}
 
-
     <div class="review-section">
       <h3>{% trans "Rating:" %} {{ avg_rating }}</h3>
       <h4>{% trans "Reviews" %}</h4>
@@ -117,7 +116,6 @@
           <button type="submit">{% trans "Submit Review" %}</button>
         </form>
       {% endif %}
-
        {% for review in product.reviews.all %}
         <div class="review">
           <p>{% trans "Rating:" %} {{ review.rating }}</p>
@@ -140,8 +138,8 @@
   </div>
   </div>
 
-    </div>
-  </div>
+
+
 
 <script>
   function switchMainImage(imageUrl, width, height) {
