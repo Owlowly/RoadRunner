@@ -15,7 +15,7 @@ from pathlib import Path
 from decouple import config
 import os
 import sys
-import dj_database_url
+
 
 
 from django.utils.translation import gettext_lazy as _

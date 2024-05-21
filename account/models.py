@@ -8,6 +8,7 @@ from shop.models import Product
 class Profile(models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE,)
     created = models.DateTimeField(auto_now_add=True)
+    first_name = models.CharField(max_length=30, blank=True, null=True )
     last_name = models.CharField(_('last_name'), max_length=50, blank=True, null=True)
     address = models.CharField(_('address'), max_length=250, blank=True, null=True)
     postal_code = models.CharField(_('postal_code'), max_length=20, blank=True, null=True)

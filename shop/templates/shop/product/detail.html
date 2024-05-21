@@ -107,7 +107,7 @@
       {% endif %}
 
     <div class="review-section">
-      <h3>{% trans "Rating:" %} {{ avg_rating }}</h3>
+      <h3>{% trans "Rating:" %} {{ avg_rating|floatformat:1 }}</h3>
       <h4>{% trans "Reviews" %}</h4>
        {% if not user_review %}
         <form action="{% url 'shop:review_add' product.id %}" method="post">
