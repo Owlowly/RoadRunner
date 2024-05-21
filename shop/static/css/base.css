@@ -499,7 +499,7 @@ input[type="submit"]:hover {
 
 .review-section {
     position: absolute;
-    margin-top: 15rem;
+    margin-top: 19rem;
     left: 50%;
     transform: translateX(-50%);
     width: 100%;
