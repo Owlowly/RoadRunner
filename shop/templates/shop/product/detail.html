@@ -123,7 +123,7 @@
         <div class="review">
           <p>{% trans "Rating:" %} {{ review.rating }}</p>
           <p>{{ review.comment }}</p>
-          <p>{% trans "Posted by:" %} {{ review.user.username }} | {% trans "Date:" %} {{ review.created_at }}</p>
+          <p>{% trans "Posted by:" %} {{ review.user.first_name }} | {% trans "Date:" %} {{ review.created_at }}</p>
           {% if review.user == request.user %}
            <!-- <form action="{% url 'shop:review_edit' product.id review.id %}" method="post">
               {% csrf_token %}
