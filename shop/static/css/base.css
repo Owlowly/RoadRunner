@@ -507,6 +507,7 @@ input[type="submit"]:hover {
     width: 100%;
     background-color: #C7D4B7;
     overflow: auto;
+    bottom: auto;
 }
 @media (max-width: 760px) {
     .review-section {
