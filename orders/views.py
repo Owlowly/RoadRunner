@@ -2,7 +2,7 @@ import os
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.http import HttpResponse
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.admin.views.decorators import staff_member_required
 from .models import OrderItem, Order
 from .forms import OrderCreateForm
@@ -17,6 +17,8 @@ from django.http import HttpResponse
 from django.template.loader import render_to_string
 import weasyprint
 from shop.recommender import Recommender
+from django.urls import reverse
+
 
 
 def clear_coupon(request):
@@ -58,12 +60,14 @@ def order_create(request):
             # launch asynchronous task, sending email order
             # order_created.delay(order.id)
             order_created(order.id)
+            # sett order in the session
+            request.session['order_id'] = order.id
+            # redirect for payment
+            return redirect(reverse('payment:process'))
             # sending PDF order
             # payment_completed.delay(order.id)
-            payment_completed(order.id)
-            return render(request,
-                          'orders/order/created.html',
-                          {'order': order, })
+            # payment_completed(order.id)
+            # return render(request,'orders/order/created.html',{'order': order, })
     else:
         if request.user.is_authenticated:
             user_info = request.user
