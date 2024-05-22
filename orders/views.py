@@ -59,7 +59,7 @@ def order_create(request):
 
             # launch asynchronous task, sending email order
             # order_created.delay(order.id)
-            order_created(order.id)
+            # order_created(order.id)
             # sett order in the session
             request.session['order_id'] = order.id
             # redirect for payment

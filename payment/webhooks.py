@@ -3,24 +3,25 @@ from django.conf import settings
 from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 from orders.models import Order
-from orders.tasks import payment_completed
+from .tasks import payment_completed
 
 
 @csrf_exempt
 def stripe_webhook(request):
     payload = request.body
-    sig_header = request.META['HTTP_STRIPE_SIGNATURE']
+    sig_header = request.META.get('HTTP_STRIPE_SIGNATURE')
     event = None
 
     try:
         event = stripe.Webhook.construct_event(
-                    payload,
-                    sig_header,
-                    settings.STRIPE_WEBHOOK_SECRET)
-    except ValueError as e:
+            payload,
+            sig_header,
+            settings.STRIPE_WEBHOOK_SECRET
+        )
+    except ValueError:
         # Invalid payload
         return HttpResponse(status=400)
-    except stripe.error.SignatureVerificationError as e:
+    except stripe.error.SignatureVerificationError:
         # Invalid signature
         return HttpResponse(status=400)
 
@@ -37,5 +38,16 @@ def stripe_webhook(request):
             order.stripe_id = session.payment_intent
             order.save()
             payment_completed(order.id)
+
+    elif event.type == 'payment_intent.succeeded':
+        payment_intent = event.data.object
+        try:
+            order = Order.objects.get(stripe_id=payment_intent.id)
+        except Order.DoesNotExist:
+            return HttpResponse(status=404)
+        # mark order as paid
+        order.paid = True
+        order.save()
+        payment_completed(order.id)
 
     return HttpResponse(status=200)
