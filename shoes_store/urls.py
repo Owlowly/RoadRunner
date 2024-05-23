@@ -22,6 +22,7 @@ from django.conf.urls.i18n import i18n_patterns
 from django.utils.translation import gettext_lazy as _
 
 
+
 urlpatterns = i18n_patterns(
     path('rex_pex_fex/', admin.site.urls),
     path('', include('django.contrib.auth.urls')),
@@ -31,6 +32,7 @@ urlpatterns = i18n_patterns(
     path(_('coupons/'), include('coupons.urls', namespace='coupons')),
     path('rosetta/', include('rosetta.urls')),
     path('payment/', include('payment.urls', namespace='payment')),
+
     path('', include('shop.urls', namespace='shop')),
 
 )

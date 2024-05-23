@@ -9,15 +9,11 @@
 
 {% block content %}
   <h1>Order summary</h1>
+<p>For testing STRIPE use: Stripe Success: 4242 4242 4242 4242, Date: any, CVC:any</p>
+<p>Failed 4000 0000 0000 0002, Date: any, CVC: any</p>
   <table class="cart">
     <thead>
-      <tr>
-        <th>Image</th>
-        <th>Product</th>
-        <th>Price</th>
-        <th>Quantity</th>
-        <th>Total</th>
-      </tr>
+
     </thead>
     <tbody>
       {% for item in order.items.all %}
@@ -33,7 +29,7 @@
       {% endfor %}
       <tr class="total">
         <td colspan="4">Total</td>
-        <td class="num">${{ order.get_total_cost }}</td>
+        <td class="num">${{ order.get_total_cost|floatformat:2 }}</td>
       </tr>
     </tbody>
   </table>

@@ -49,7 +49,7 @@ def order_created(order_id):
 
 
 @shared_task
-def payment_completed(order_id):
+def payment_completed_task(order_id):
     """Task to send PDF when order complete. For sending PDF after successfully paid, use it in payment_app"""
     order = get_object_or_404(Order, id=order_id)
     # Create invoice email

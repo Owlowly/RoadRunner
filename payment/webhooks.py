@@ -1,28 +1,27 @@
+from django.views.decorators.csrf import csrf_exempt
+from django.http import HttpResponse
 import stripe
 from django.conf import settings
-from django.http import HttpResponse
-from django.views.decorators.csrf import csrf_exempt
 from orders.models import Order
-from .tasks import payment_completed
+from orders.tasks import payment_completed
+from .tasks import payment_completed_task
+import json
 
 
 @csrf_exempt
 def stripe_webhook(request):
+    print('Webhook received')
     payload = request.body
-    sig_header = request.META.get('HTTP_STRIPE_SIGNATURE')
+    sig_header = request.META['HTTP_STRIPE_SIGNATURE']
     event = None
-
     try:
         event = stripe.Webhook.construct_event(
             payload,
             sig_header,
-            settings.STRIPE_WEBHOOK_SECRET
-        )
-    except ValueError:
-        # Invalid payload
+            settings.STRIPE_WEBHOOK_SECRET)
+    except ValueError as e:
         return HttpResponse(status=400)
-    except stripe.error.SignatureVerificationError:
-        # Invalid signature
+    except stripe.error.SignatureVerificationError as e:
         return HttpResponse(status=400)
 
     if event.type == 'checkout.session.completed':
@@ -32,22 +31,12 @@ def stripe_webhook(request):
                 order = Order.objects.get(id=session.client_reference_id)
             except Order.DoesNotExist:
                 return HttpResponse(status=404)
-            # mark order as paid
+
             order.paid = True
             # store Stripe payment ID
             order.stripe_id = session.payment_intent
             order.save()
-            payment_completed(order.id)
 
-    elif event.type == 'payment_intent.succeeded':
-        payment_intent = event.data.object
-        try:
-            order = Order.objects.get(stripe_id=payment_intent.id)
-        except Order.DoesNotExist:
-            return HttpResponse(status=404)
-        # mark order as paid
-        order.paid = True
-        order.save()
-        payment_completed(order.id)
+            payment_completed(order.id)
 
     return HttpResponse(status=200)

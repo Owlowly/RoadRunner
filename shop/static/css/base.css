@@ -38,7 +38,7 @@ h3.logo a:hover {
     }
 
     h3.logo {
-        margin-right: 1%;
+        margin-left: -5rem;
         order: -1;
     }
 }
@@ -48,14 +48,20 @@ h3.logo a:hover {
     color: black;
     border: none;
     padding: 0;
-    margin-left: -15px;
-    margin-top: -6px;
+    margin-left: 0;
+    margin-top: 0;
 }
 .languages .dropdown-toggle:hover {
     background: linear-gradient(to right, #AE9032, #91C14B);
     color: white;
 }
 
+@media (max-width: 780px) {
+.languages .dropdown-toggle{
+
+    margin-left: -1rem;
+    }
+}
 .languages .dropdown-menu {
     background: linear-gradient(to right, #CAA73A, #93C47D);
     min-width: auto;
@@ -110,7 +116,12 @@ h3.logo a:hover {
 #userDropdown.no-hover:hover {
     background-color: transparent !important;
 }
-
+@media (max-width: 768px) {
+  .navbar-nav.ml-auto {
+    margin-top: -3rem;
+    margin-right: -1rem;
+  }
+}
 
 
 #subheader {

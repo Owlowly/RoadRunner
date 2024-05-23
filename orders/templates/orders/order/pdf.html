@@ -48,13 +48,26 @@
     }
     .paid {
       color: green;
+      position: flex;
+      margin-left: 30rem;
+      margin-top: -30rem;
+      font-size: 3rem;
+      text-decoration: none;
+      border: none;
     }
+
     .pending {
       color: red;
+      position: flex;
+      margin-left: 30rem;
+      margin-top: -30rem;
+      font-size: 3rem;
+      text-decoration: none;
+      border: none;
     }
     .product-size {
       margin: 0;
-      font-style: italic;
+      text-align: right;
     }
 
   </style>
@@ -114,8 +127,10 @@
       </tr>
     </tbody>
   </table>
-  <p class="{% if order.paid %}paid{% else %}pending{% endif %}">
-    {% if order.paid %}{% trans 'Paid' %}{% else %}{% trans 'Pending payment' %}{% endif %}
-  </p>
+
+    <p class="{% if order.paid %}paid{% else %}pending{% endif %}">
+      {% if order.paid %}{% trans 'Paid' %}{% else %}{% trans 'Pending payment' %}{% endif %}
+    </p>
+
 </body>
 </html>
