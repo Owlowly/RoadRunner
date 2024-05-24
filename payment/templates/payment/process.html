@@ -9,19 +9,18 @@
 
 {% block content %}
   <h1>Order summary</h1>
-<p>For testing STRIPE use: Stripe Success: 4242 4242 4242 4242, Date: any, CVC:any</p>
-<p>Failed 4000 0000 0000 0002, Date: any, CVC: any</p>
+<p>For testing STRIPE use Stripe Success: 4242 4242 4242 4242, Date: any, CVC:any</p>
+<p>Failed payment: 4000 0000 0000 0002, Date: any, CVC: any</p>
   <table class="cart">
-    <thead>
 
-    </thead>
     <tbody>
       {% for item in order.items.all %}
         <tr class="row{% cycle "1" "2" %}">
           <td>
             <img src="{% thumbnail item.product.image "100x100" crop="smart" %}" alt="{{ item.product.name }}">
           </td>
-          <td>{{ item.product.name }}</td>
+          <td>{{ item.product.name }}, size: {% for size in item.size.all %}{{ size.name }}{% endfor %}</td>
+
           <td class="num">${{ item.price }}</td>
           <td class="num">{{ item.quantity }}</td>
           <td class="num">${{ item.get_cost }}</td>

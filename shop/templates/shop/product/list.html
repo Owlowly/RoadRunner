@@ -39,7 +39,11 @@
                     <div class="col-md-3 mb-4">
                         <div class="item bg-white p-3 rounded shadow">
                             <a href="{{ product.get_absolute_url }}">
-                                <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static "image/no_image.jpg" %}{% endif %}" class="img-fluid custom-img">
+                                {% if product.image %}
+                                    <img src="{{ product.image.url }}" class="img-fluid custom-img">
+                                {% else %}
+                                    <img src="{% static 'image/no_image.jpg' %}" class="img-fluid custom-img">
+                                {% endif %}
                             </a>
                             <a href="{{ product.get_absolute_url }}" class="text-dark">{{ product.name }}</a>
                             <br>

@@ -466,7 +466,7 @@ input[type="submit"] {
 }
 @media (max-width: 760px) {
   .product-form {
-    margin-top: -9rem;
+    margin-top: 0rem;
     margin-right: 0;
     margin-left: 0;
     padding: 0 10px;
@@ -805,7 +805,7 @@ body.cart-detail-page a.button.checkout {
 }
 @media (max-width: 760px) {
     .order-info {
-        width: 95%;
+        width: 100%;
         padding: 20px;
         margin: 10% auto;
     }

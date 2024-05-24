@@ -20,7 +20,6 @@ from shop.recommender import Recommender
 from django.urls import reverse
 
 
-
 def clear_coupon(request):
     if 'coupon_id' in request.session:
         del request.session['coupon_id']
@@ -60,10 +59,12 @@ def order_create(request):
             # launch asynchronous task, sending email order
             # order_created.delay(order.id)
             # order_created(order.id)
+
             # sett order in the session
             request.session['order_id'] = order.id
             # redirect for payment
             return redirect(reverse('payment:process'))
+
             # sending PDF order
             # payment_completed.delay(order.id)
             # payment_completed(order.id)

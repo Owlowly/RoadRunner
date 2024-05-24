@@ -48,20 +48,19 @@ def payment_process(request):
 
 
 def payment_completed(request):
-
-    # USe this part if Webhook not working
+    # USe this part if Webhook not workin
     order_id = request.session.get('order_id', None)
     if order_id is None:
         return None
     order = get_object_or_404(Order, id=order_id)
+
     # Retrieve the Stripe payment intent ID from the session
     stripe_payment_intent = request.session.get('stripe_payment_intent')
     order.paid = True
-    order.stripe_id = stripe_payment_intent
+    # order.stripe_id = stripe_payment_intent
     order.save()
     payment_completed_task(order.id)
     # print(f'Order_id: {order_id}, Order: {order}')
-
     return render(request, 'payment/completed.html', {'order': order})
 
 

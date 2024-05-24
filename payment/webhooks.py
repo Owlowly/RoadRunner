@@ -3,14 +3,13 @@ from django.http import HttpResponse
 import stripe
 from django.conf import settings
 from orders.models import Order
-from orders.tasks import payment_completed
 from .tasks import payment_completed_task
 import json
 
 
 @csrf_exempt
 def stripe_webhook(request):
-    print('Webhook received')
+    # print('Webhook received')
     payload = request.body
     sig_header = request.META['HTTP_STRIPE_SIGNATURE']
     event = None
@@ -37,6 +36,6 @@ def stripe_webhook(request):
             order.stripe_id = session.payment_intent
             order.save()
 
-            payment_completed(order.id)
+            payment_completed_task(order.id)
 
     return HttpResponse(status=200)
