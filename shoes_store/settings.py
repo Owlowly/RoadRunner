@@ -31,7 +31,7 @@ SECRET_KEY = config('SECRET_KEY')
 DEBUG = True
 DEVELOPMENT_MODE = os.getenv("DEVELOPMENT_MODE", "False") == "True"
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'roadrunner-ym4pv.ondigitalocean.app']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'roadrunner-ym4pv.ondigitalocean.app', '134.209.114.226']
 
 # Application definition
 
