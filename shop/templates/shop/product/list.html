@@ -33,10 +33,10 @@
         </div>
         <div class="col-md-9">
             <div class="product-list">
-                <h1 class="mb-4">{% if category %}{{ category.name }}{% else %}{% endif %}</h1>
+                <h1 class="mb-4">{% if category %}{% else %}{% endif %}</h1>
                 <div class="row">
                     {% for product in products %}
-                    <div class="col-md-3 mb-4">
+                    <div class="col-6 col-md-3 mb-4">
                         <div class="item bg-white p-3 rounded shadow">
                             <a href="{{ product.get_absolute_url }}">
                                 {% if product.image %}

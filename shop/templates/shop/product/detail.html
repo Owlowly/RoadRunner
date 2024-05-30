@@ -107,7 +107,10 @@
       {% endif %}
 
     <div class="review-section">
-      <h3>{% trans "Rating:" %} {{ avg_rating|floatformat:1 }}</h3>
+      {% if avg_rating > 0 %}
+          <h3>{% trans "Rating:" %} {{ avg_rating|floatformat:1 }}</h3>
+      {% endif %}
+
       <h4>{% trans "Reviews" %}</h4>
        {% if not user_review %}
         <form action="{% url 'shop:review_add' product.id %}" method="post">
@@ -157,6 +160,9 @@
       switchMainImage(imageUrl, 400, 400); // Call the switchMainImage function with appropriate parameters
     });
   });
+
+
+
 
   function toggleWishlist() {
     var form = document.getElementById('wishlist-form');

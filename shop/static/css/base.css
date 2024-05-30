@@ -119,7 +119,7 @@ h3.logo a:hover {
 @media (max-width: 768px) {
   .navbar-nav.ml-auto {
     margin-top: -3rem;
-    margin-right: -1rem;
+    margin-right: -1.5rem;
   }
 }
 
@@ -218,6 +218,7 @@ h3.logo a:hover {
         width: 100%;
         margin-right: 0;
         margin-left: 0;
+        margin-bottom: 1.5rem;
     }
 }
 
@@ -242,7 +243,6 @@ h3.logo a:hover {
 #sidebar a {
     text-decoration: none;
     font-weight: bold;
-
     display: block;
     padding: 8px;
     border-radius: 10px;
@@ -262,7 +262,7 @@ h3.logo a:hover {
 }
 
 #sidebar ul li ul.collapse.show {
-    margin-left: 20px;
+    margin-left: 0px;
 }
 
 
@@ -270,11 +270,13 @@ h3.logo a:hover {
     display: flex;
     flex-wrap: wrap;
     gap: 0px;
+     object-fit: cover;
 }
 
 .item {
     background: linear-gradient(to right, #CFDBC1, #C6DDA4);
     margin: 5px;
+    width: 110%
     border-radius: 0;
     box-shadow: none;
     transition: all 0.3s ease;
@@ -282,24 +284,39 @@ h3.logo a:hover {
 }
 
 .item:hover {
-    transform: scale(1.05);
+    transform: scale(1.01);
 }
 
 .item img {
-    width: 100%;
+    width: 100% ;
     max-width: 100%;
     height: auto;
-    border-radius: 25px;
+    border-radius: 15px;
     margin: 0 auto;
 }
+@media (max-width: 680px) {
+    .product-list {
+        display: flex;
 
-@media (max-width: 780px) {
+
+    }
     .product-list .item {
-        width: 78% !important;
-        flex: 0 0 calc(48% - 10px) !important;
+        margin-left: -0.4rem !important;
+        width: 110% !important;
+        box-sizing: border-box;
+
+    }
+    .item img {
+        width: 110% ;
+        max-width: 110%;
+        height: auto;
+        border-radius: 15px;
+        margin-left: -0.4rem ;
+
 
     }
 }
+
 
 
 .product-detail {
@@ -320,12 +337,14 @@ h3.logo a:hover {
     .product-detail .image-group #main-image {
     width: 100%;
     margin-top: 1rem;
-    margin-bottom: 1rem;
+    margin-left: 0.5rem;
+
     }
 }
 
 .product-detail .image-group .small-images img {
     margin-right: 1rem !important;
+    margin-top: 1rem !important
 }
 
 .product-detail .image-group .small-images img:last-child {
@@ -512,7 +531,7 @@ input[type="submit"]:hover {
 
 .review-section {
     position: absolute;
-    margin-top: 18rem;
+    margin-top: 19rem;
     left: 50%;
     transform: translateX(-50%);
     width: 100%;
@@ -525,6 +544,7 @@ input[type="submit"]:hover {
         position: relative;
         margin-top: 4rem;
         bottom: auto;
+        width: 100%;
     }
 }
 
@@ -545,12 +565,13 @@ input[type="submit"]:hover {
 .review-section button[type="submit"] {
     width: 140px;
     background: linear-gradient(to right, #AE9956, #4B6EF4);
+    width: 20rem;
     color: white;
     padding: 4px;
     border: none;
     margin-top: 1px;
     margin-left: 2px;
-    border-radius: 15px;
+    border-radius: 10px;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
@@ -719,6 +740,7 @@ body.cart-detail-page a.button.checkout {
         padding: 0px;
         margin-right: 15%;
         margin-top: 0;
+        font-size: 90%;
     }
 
     .buttons-cart .button.shopping,
@@ -927,7 +949,30 @@ table.orders .total {
 .wishlist-page .wishlist .product-remove button:hover {
     background-color: #cc0000; /
 }
+@media (max-width: 600px) {
+    .wishlist-page .wishlist {
+        width: 100%;
+        margin-left: 0;
+    }
 
+    .wishlist-page .wishlist tr {
+        width: 100%;
+    }
+
+    .wishlist-page .wishlist td {
+        padding: 10px;
+        width: auto;
+    }
+
+    .wishlist-page .product-price {
+        width: auto;
+    }
+
+    .wishlist-page .wishlist .product-image img {
+        width: 100%;
+        height: auto;
+    }
+}
 /* Contact */
 #contact .card {
     width: 50rem ;
